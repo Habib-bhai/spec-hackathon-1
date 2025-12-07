@@ -1,0 +1,40 @@
+---
+sidebar_position: 5
+---
+
+# Week 5: Launch Files
+
+Master ROS 2 launch files to start multiple nodes with configuration.
+
+## Launch Files
+
+Launch files allow you to:
+- Start multiple nodes at once
+- Set parameters
+- Configure remappings
+- Manage node lifecycle
+
+```python
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+def generate_launch_description():
+    return LaunchDescription([
+        Node(
+            package='my_package',
+            executable='my_node',
+            name='my_node',
+            parameters=[{'param_name': 'param_value'}]
+        )
+    ])
+```
+
+## Best Practices
+
+- Use YAML files for parameters
+- Group related nodes together
+- Include namespaces for organization
+
+## Exercise
+
+Create a launch file for a complete robot system.

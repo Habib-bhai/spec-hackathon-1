@@ -1,0 +1,40 @@
+---
+sidebar_position: 2
+---
+
+# Week 2: Nodes and Topics
+
+Learn how ROS 2 nodes communicate using the publish-subscribe pattern with topics.
+
+## Topics
+
+Topics are named buses over which nodes exchange messages. They implement a publish-subscribe pattern:
+- **Publishers** send messages to topics
+- **Subscribers** receive messages from topics
+
+```python
+from rclpy.node import Node
+from std_msgs.msg import String
+
+class Publisher(Node):
+    def __init__(self):
+        super().__init__('publisher')
+        self.publisher = self.create_publisher(String, 'my_topic', 10)
+        self.timer = self.create_timer(1.0, self.timer_callback)
+        
+    def timer_callback(self):
+        msg = String()
+        msg.data = 'Hello ROS 2!'
+        self.publisher.publish(msg)
+```
+
+## Message Types
+
+ROS 2 uses strongly-typed messages. Common types include:
+- `std_msgs/String`
+- `geometry_msgs/Pose`
+- `sensor_msgs/Image`
+
+## Exercise
+
+Create a publisher and subscriber that exchange custom messages.

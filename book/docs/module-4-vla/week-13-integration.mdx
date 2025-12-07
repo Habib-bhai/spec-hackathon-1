@@ -1,0 +1,51 @@
+---
+sidebar_position: 3
+---
+
+# Week 13: Integrating VLA Models with Robots
+
+Put it all together: integrate VLA models into a complete robotic system.
+
+## System Architecture
+
+A VLA-powered robot system includes:
+- **Perception**: Vision input processing
+- **Language**: Command understanding
+- **Action**: Motor control output
+
+## Integration Steps
+
+1. Set up the robot hardware/simulation
+2. Load and configure the VLA model
+3. Create the control loop
+4. Test and iterate
+
+```python
+def control_loop(robot, vla_model):
+    while True:
+        # Capture image
+        image = robot.get_camera_image()
+        
+        # Get command
+        command = get_user_command()
+        
+        # Predict action
+        action = vla_model.predict(image, command)
+        
+        # Execute
+        robot.execute_action(action)
+```
+
+## Exercise
+
+Build a complete system that responds to natural language commands.
+
+## Project Ideas
+
+- Pick and place with voice commands
+- Navigation with visual goals
+- Manipulation with language descriptions
+
+## Next Steps
+
+Congratulations! You've completed the Physical AI textbook fundamentals. Continue practicing and building your own projects.

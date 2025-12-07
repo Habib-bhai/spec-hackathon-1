@@ -1,0 +1,8 @@
+{
+  "label": "Module 2: Robot Simulation with Gazebo",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Master robot simulation using Gazebo, including URDF models, physics simulation, and sensor integration."
+  }
+}

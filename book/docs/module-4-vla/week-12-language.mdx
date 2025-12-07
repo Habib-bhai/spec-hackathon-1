@@ -1,0 +1,32 @@
+---
+sidebar_position: 2
+---
+
+# Week 12: Language Models for Robot Commands
+
+Discover how language models enable natural language interaction with robots.
+
+## Language for Robotics
+
+Language models allow robots to:
+- **Understand** natural language commands
+- **Plan** task sequences
+- **Reason** about actions
+
+## VLA Models
+
+Vision-Language-Action models combine:
+- **Vision**: See the environment
+- **Language**: Understand commands
+- **Action**: Execute motor commands
+
+```python
+# Example: Using a VLA model
+from transformers import AutoModel
+
+vla_model = AutoModel.from_pretrained("openvla/openvla-7b")
+```
+
+## Exercise
+
+Create a natural language interface for robot control.

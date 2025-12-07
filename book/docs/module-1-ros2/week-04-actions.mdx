@@ -1,0 +1,43 @@
+---
+sidebar_position: 4
+---
+
+# Week 4: Actions
+
+Learn about ROS 2 actions for long-running tasks with feedback.
+
+## What are Actions?
+
+Actions are for tasks that:
+- Take time to complete
+- Provide periodic feedback
+- Can be cancelled
+
+```python
+from action_tutorials_interfaces.action import Fibonacci
+
+class ActionServer(Node):
+    def __init__(self):
+        super().__init__('action_server')
+        self._action_server = ActionServer(
+            self,
+            Fibonacci,
+            'fibonacci',
+            self.execute_callback
+        )
+    
+    def execute_callback(self, goal_handle):
+        # Send periodic feedback
+        # Return final result
+        pass
+```
+
+## Action Components
+
+1. **Goal**: What you want to accomplish
+2. **Feedback**: Progress updates
+3. **Result**: Final outcome
+
+## Exercise
+
+Create an action server for a navigation task.

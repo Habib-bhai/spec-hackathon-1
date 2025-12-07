@@ -1,0 +1,8 @@
+{
+  "label": "Module 3: NVIDIA Isaac Platform",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Explore NVIDIA's Isaac Sim and Isaac Lab for advanced robot simulation, reinforcement learning, and sim-to-real transfer."
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "label": "Module 4: Vision-Language-Action Models",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Learn about Vision-Language-Action (VLA) models and how to integrate them with robotic systems for intelligent task execution."
+  }
+}
