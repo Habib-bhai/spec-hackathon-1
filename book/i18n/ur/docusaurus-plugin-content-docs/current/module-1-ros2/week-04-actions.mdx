@@ -1,0 +1,43 @@
+---
+sidebar_position: 4
+---
+
+# ہفتہ 4: ایکشنز
+
+فیڈبیک کے ساتھ طویل مدتی کاموں کے لیے ROS 2 ایکشنز سیکھیں۔
+
+## ایکشنز کیا ہیں؟
+
+ایکشنز ان کاموں کے لیے ہیں جو:
+- مکمل ہونے میں وقت لیتے ہیں
+- وقتاً فوقتاً فیڈبیک فراہم کرتے ہیں
+- منسوخ کیے جا سکتے ہیں
+
+```python
+from action_tutorials_interfaces.action import Fibonacci
+
+class ActionServer(Node):
+    def __init__(self):
+        super().__init__('action_server')
+        self._action_server = ActionServer(
+            self,
+            Fibonacci,
+            'fibonacci',
+            self.execute_callback
+        )
+    
+    def execute_callback(self, goal_handle):
+        # وقتاً فوقتاً فیڈبیک بھیجیں
+        # حتمی نتیجہ واپس کریں
+        pass
+```
+
+## ایکشن کے اجزاء
+
+1. **گول**: آپ کیا حاصل کرنا چاہتے ہیں
+2. **فیڈبیک**: پیش رفت کی اپڈیٹس
+3. **رزلٹ**: حتمی نتیجہ
+
+## مشق
+
+نیویگیشن ٹاسک کے لیے ایکشن سرور بنائیں۔

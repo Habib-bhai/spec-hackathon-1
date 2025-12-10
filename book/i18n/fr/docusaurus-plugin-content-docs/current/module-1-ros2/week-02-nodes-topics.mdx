@@ -1,0 +1,40 @@
+---
+sidebar_position: 2
+---
+
+# Semaine 2 : Nœuds et Topics
+
+Apprenez comment les nœuds ROS 2 communiquent en utilisant le pattern publish-subscribe avec les topics.
+
+## Topics
+
+Les topics sont des bus nommés sur lesquels les nœuds échangent des messages. Ils implémentent un pattern publish-subscribe :
+- Les **Publishers** envoient des messages aux topics
+- Les **Subscribers** reçoivent des messages des topics
+
+```python
+from rclpy.node import Node
+from std_msgs.msg import String
+
+class Publisher(Node):
+    def __init__(self):
+        super().__init__('publisher')
+        self.publisher = self.create_publisher(String, 'my_topic', 10)
+        self.timer = self.create_timer(1.0, self.timer_callback)
+        
+    def timer_callback(self):
+        msg = String()
+        msg.data = 'Bonjour ROS 2 !'
+        self.publisher.publish(msg)
+```
+
+## Types de Messages
+
+ROS 2 utilise des messages fortement typés. Les types courants incluent :
+- `std_msgs/String`
+- `geometry_msgs/Pose`
+- `sensor_msgs/Image`
+
+## Exercice
+
+Créez un publisher et un subscriber qui échangent des messages personnalisés.

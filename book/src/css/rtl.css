@@ -1,0 +1,326 @@
+/**
+ * RTL (Right-to-Left) Styles for Arabic and Urdu
+ * 
+ * Applied when html[dir="rtl"] or .rtl class is present
+ * Code blocks remain LTR for proper code display
+ */
+
+/* ====== RTL Direction Base ====== */
+[dir='rtl'] {
+  text-align: right;
+}
+
+/* ====== Navbar RTL ====== */
+[dir='rtl'] .navbar__items {
+  flex-direction: row-reverse;
+}
+
+[dir='rtl'] .navbar__brand {
+  margin-right: 0;
+  margin-left: 1rem;
+}
+
+[dir='rtl'] .navbar__logo {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
+[dir='rtl'] .navbar__toggle {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+/* ====== Sidebar RTL ====== */
+[dir='rtl'] .menu {
+  text-align: right;
+}
+
+[dir='rtl'] .menu__list {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+[dir='rtl'] .menu__list .menu__list {
+  padding-left: 0;
+  padding-right: 1rem;
+}
+
+[dir='rtl'] .menu__link {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+[dir='rtl'] .menu__list-item-collapsible {
+  flex-direction: row-reverse;
+}
+
+[dir='rtl'] .menu__link--sublist-caret::after {
+  transform: scaleX(-1);
+  margin-left: 0;
+  margin-right: auto;
+}
+
+[dir='rtl'] .menu__caret {
+  transform: scaleX(-1);
+}
+
+/* ====== Breadcrumbs RTL ====== */
+[dir='rtl'] .breadcrumbs {
+  flex-direction: row-reverse;
+}
+
+[dir='rtl'] .breadcrumbs__item:not(:last-child)::after {
+  content: '\\';
+  transform: scaleX(-1);
+}
+
+[dir='rtl'] .breadcrumbs__link {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+/* ====== Content RTL ====== */
+[dir='rtl'] .markdown > * {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+[dir='rtl'] .markdown ul,
+[dir='rtl'] .markdown ol {
+  padding-left: 0;
+  padding-right: 2rem;
+}
+
+[dir='rtl'] .markdown li::marker {
+  unicode-bidi: isolate;
+}
+
+[dir='rtl'] .markdown blockquote {
+  border-left: none;
+  border-right: 4px solid var(--ifm-color-primary);
+  padding-left: 0;
+  padding-right: 1rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* ====== Tables RTL ====== */
+[dir='rtl'] table {
+  direction: rtl;
+}
+
+[dir='rtl'] table th,
+[dir='rtl'] table td {
+  text-align: right;
+}
+
+/* ====== Admonitions RTL ====== */
+[dir='rtl'] .admonition {
+  border-left: none;
+  border-right: 4px solid;
+}
+
+[dir='rtl'] .admonition-icon {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
+[dir='rtl'] .admonition-heading {
+  flex-direction: row-reverse;
+}
+
+/* ====== Pagination RTL ====== */
+[dir='rtl'] .pagination-nav {
+  flex-direction: row-reverse;
+}
+
+[dir='rtl'] .pagination-nav__sublabel {
+  text-align: right;
+}
+
+[dir='rtl'] .pagination-nav__link--prev .pagination-nav__sublabel::before {
+  content: '→';
+}
+
+[dir='rtl'] .pagination-nav__link--next .pagination-nav__sublabel::after {
+  content: '←';
+}
+
+/* ====== TOC RTL ====== */
+[dir='rtl'] .table-of-contents {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+[dir='rtl'] .table-of-contents__link {
+  margin-left: 0;
+  margin-right: calc(-0.5rem);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+[dir='rtl'] .table-of-contents ul {
+  padding-left: 0;
+  padding-right: 1rem;
+}
+
+/* ====== Search RTL ====== */
+[dir='rtl'] .DocSearch-Button {
+  flex-direction: row-reverse;
+}
+
+[dir='rtl'] .DocSearch-Button-Placeholder {
+  padding-left: 0;
+  padding-right: 0.5rem;
+}
+
+/* ====== Code Blocks - Force LTR ====== */
+/* Code should always be left-to-right regardless of page direction */
+[dir='rtl'] pre,
+[dir='rtl'] code,
+[dir='rtl'] .prism-code,
+[dir='rtl'] [class*='codeBlock'] {
+  direction: ltr !important;
+  text-align: left !important;
+  unicode-bidi: embed;
+}
+
+[dir='rtl'] div[class*='codeBlockContainer'] {
+  direction: ltr;
+}
+
+[dir='rtl'] div[class*='codeBlockTitle'] {
+  direction: ltr;
+  text-align: left;
+}
+
+[dir='rtl'] div[class*='codeBlockLines'] {
+  direction: ltr;
+}
+
+[dir='rtl'] button[class*='copyButton'] {
+  right: auto;
+  left: 0.5rem;
+}
+
+/* ====== Chat Widget RTL ====== */
+[dir='rtl'] .chatWindow {
+  left: 24px;
+  right: auto;
+}
+
+[dir='rtl'] .toggleButton {
+  left: 24px;
+  right: auto;
+}
+
+[dir='rtl'] .header {
+  flex-direction: row-reverse;
+}
+
+[dir='rtl'] .inputContainer {
+  flex-direction: row-reverse;
+}
+
+[dir='rtl'] .input {
+  text-align: right;
+}
+
+[dir='rtl'] .userMessage {
+  align-self: flex-start;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+[dir='rtl'] .assistantMessage {
+  align-self: flex-end;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+[dir='rtl'] .sources {
+  flex-direction: row-reverse;
+}
+
+[dir='rtl'] .selectedTextBanner {
+  flex-direction: row-reverse;
+}
+
+/* ====== Footer RTL ====== */
+[dir='rtl'] .footer__links {
+  flex-direction: row-reverse;
+}
+
+[dir='rtl'] .footer__col {
+  text-align: right;
+}
+
+[dir='rtl'] .footer__items {
+  text-align: right;
+}
+
+/* ====== Miscellaneous RTL ====== */
+[dir='rtl'] .badge {
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+
+[dir='rtl'] .theme-doc-version-badge {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Icons that need flipping in RTL */
+[dir='rtl'] .arrow-icon,
+[dir='rtl'] [class*='chevron'],
+[dir='rtl'] [class*='arrow'] {
+  transform: scaleX(-1);
+}
+
+/* ====== Mobile RTL Adjustments ====== */
+@media (max-width: 996px) {
+  [dir='rtl'] .navbar-sidebar {
+    left: auto;
+    right: 0;
+    transform: translateX(100%);
+  }
+  
+  [dir='rtl'] .navbar-sidebar--show {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  [dir='rtl'] .chatWindow {
+    left: 16px;
+    right: 16px;
+  }
+  
+  [dir='rtl'] .toggleButton {
+    left: 16px;
+    right: auto;
+  }
+}
+
+/* ====== Arabic-specific Styles ====== */
+[lang='ar'] {
+  font-family: 'Noto Sans Arabic', 'Geeza Pro', 'Arabic Typesetting', 
+    var(--ifm-font-family-base);
+}
+
+/* ====== Urdu-specific Styles ====== */
+[lang='ur'] {
+  font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 
+    'Urdu Typesetting', var(--ifm-font-family-base);
+  /* Nastaliq script often needs more line height */
+  line-height: 2;
+}
+
+[lang='ur'] h1,
+[lang='ur'] h2,
+[lang='ur'] h3,
+[lang='ur'] h4,
+[lang='ur'] h5,
+[lang='ur'] h6 {
+  line-height: 1.8;
+}

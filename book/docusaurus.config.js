@@ -32,12 +32,37 @@ const config = {
     },
   },
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
+  // Internationalization (i18n) configuration
+  // Supports: English, French, Arabic (RTL), Urdu (RTL)
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'fr', 'ar', 'ur'],
+    localeConfigs: {
+      en: {
+        label: 'English',
+        direction: 'ltr',
+        htmlLang: 'en-US',
+        calendar: 'gregory',
+      },
+      fr: {
+        label: 'Français',
+        direction: 'ltr',
+        htmlLang: 'fr-FR',
+        calendar: 'gregory',
+      },
+      ar: {
+        label: 'العربية',
+        direction: 'rtl',
+        htmlLang: 'ar-SA',
+        calendar: 'gregory',
+      },
+      ur: {
+        label: 'اردو',
+        direction: 'rtl',
+        htmlLang: 'ur-PK',
+        calendar: 'gregory',
+      },
+    },
   },
 
   // Custom fields for runtime access
@@ -52,6 +77,10 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
+          // Enable breadcrumbs for better navigation
+          breadcrumbs: true,
+          // Show last update time
+          showLastUpdateTime: true,
           // Remove this to remove the "edit this page" links.
           editUrl: undefined,
         },
@@ -68,8 +97,31 @@ const config = {
     ({
       // Social card image
       image: 'img/docusaurus-social-card.jpg',
+      
+      // Color mode configuration
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
+      
+      // Table of contents configuration
+      tableOfContents: {
+        minHeadingLevel: 2,
+        maxHeadingLevel: 4,
+      },
+      
+      // Docs configuration
+      docs: {
+        sidebar: {
+          hideable: true,
+          autoCollapseCategories: true,
+        },
+      },
+      
       navbar: {
         title: 'Physical AI Textbook',
+        hideOnScroll: false,
         logo: {
           alt: 'Physical AI Logo',
           src: 'img/logo.svg',
@@ -85,6 +137,21 @@ const config = {
             href: 'https://github.com/yourusername/physical-ai-textbook',
             label: 'GitHub',
             position: 'right',
+          },
+          // Language selector dropdown
+          {
+            type: 'localeDropdown',
+            position: 'right',
+            dropdownItemsAfter: [
+              {
+                type: 'html',
+                value: '<hr style="margin: 0.3rem 0;">',
+              },
+              {
+                href: 'https://github.com/yourusername/physical-ai-textbook/issues',
+                label: 'Help translate',
+              },
+            ],
           },
         ],
       },
@@ -115,8 +182,28 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
-        additionalLanguages: ['python', 'bash'],
+        additionalLanguages: ['python', 'bash', 'json', 'yaml', 'cpp', 'cmake'],
+        defaultLanguage: 'python',
+        magicComments: [
+          {
+            className: 'theme-code-block-highlighted-line',
+            line: 'highlight-next-line',
+            block: {start: 'highlight-start', end: 'highlight-end'},
+          },
+          {
+            className: 'code-block-error-line',
+            line: 'error-next-line',
+          },
+        ],
       },
+      // Announcement bar (optional - can be enabled for important notices)
+      // announcementBar: {
+      //   id: 'i18n_support',
+      //   content: '🌍 Now available in French, Arabic, and Urdu!',
+      //   backgroundColor: '#2563eb',
+      //   textColor: '#ffffff',
+      //   isCloseable: true,
+      // },
     }),
 };
 

@@ -1,0 +1,38 @@
+---
+sidebar_position: 2
+---
+
+# ہفتہ 7: URDF اور روبوٹ ماڈلز
+
+URDF (یونیفائیڈ روبوٹ ڈسکرپشن فارمیٹ) کا استعمال کرتے ہوئے روبوٹس کی تفصیل سیکھیں۔
+
+## URDF کیا ہے؟
+
+URDF روبوٹ ماڈلز کی نمائندگی کے لیے ایک XML فارمیٹ ہے، جس میں شامل ہیں:
+- **لنکس**: سخت اجسام
+- **جوائنٹس**: لنکس کے درمیان کنکشنز
+- **ویژول**: ظاہری شکل
+- **کولیژن**: فزکس باؤنڈریز
+
+```xml
+<robot name="my_robot">
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.6 0.3 0.2"/>
+      </geometry>
+    </visual>
+  </link>
+  
+  <joint name="wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="wheel_link"/>
+    <origin xyz="0.2 0 -0.1"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+</robot>
+```
+
+## مشق
+
+ایک سادہ موبائل روبوٹ کے لیے URDF ماڈل بنائیں۔

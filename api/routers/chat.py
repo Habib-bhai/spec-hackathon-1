@@ -23,6 +23,19 @@ logger = logging.getLogger(__name__)
 router = APIRouter()
 
 
+@router.options("/")
+async def chat_options():
+    """Handle CORS preflight requests for chat endpoint."""
+    return JSONResponse(
+        content={},
+        headers={
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "POST, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        }
+    )
+
+
 @router.post("/", response_model=ChatResponse)
 async def chat(
     request: ChatRequest,

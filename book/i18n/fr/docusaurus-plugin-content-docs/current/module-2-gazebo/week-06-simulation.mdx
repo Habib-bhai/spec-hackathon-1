@@ -1,0 +1,41 @@
+---
+sidebar_position: 1
+---
+
+# Semaine 6 : Introduction à la Simulation Gazebo
+
+Apprenez à simuler des robots avec Gazebo, un puissant simulateur de robots 3D.
+
+## Qu'est-ce que Gazebo ?
+
+Gazebo est un simulateur de robots 3D qui fournit :
+- **Simulation physique** réaliste
+- **Simulation de capteurs** (caméras, lidar, IMU)
+- **Modèles de robots** et environnements
+
+## Installation de Gazebo
+
+```bash
+# Installer Gazebo pour ROS 2
+sudo apt install ros-humble-gazebo-ros-pkgs
+```
+
+## Monde de Base
+
+```xml
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="default">
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+  </world>
+</sdf>
+```
+
+## Exercice
+
+Lancez Gazebo et explorez le monde par défaut.

@@ -1,0 +1,34 @@
+---
+sidebar_position: 3
+---
+
+# ہفتہ 10: Isaac Lab کے ساتھ ریئنفورسمنٹ لرننگ
+
+Isaac Lab میں ریئنفورسمنٹ لرننگ کا استعمال کرتے ہوئے روبوٹ پالیسیز ٹرین کریں۔
+
+## Isaac Lab
+
+Isaac Lab (پہلے Isaac Gym) فراہم کرتا ہے:
+- **بڑے پیمانے پر متوازی** سمولیشن
+- **RL ٹریننگ** انٹیگریشن
+- **Sim سے Real** ٹرانسفر
+
+```python
+from omni.isaac.lab.app import AppLauncher
+app_launcher = AppLauncher()
+
+from omni.isaac.lab_tasks.manager_based.locomotion import LocomotionEnv
+
+env = LocomotionEnv(cfg=cfg)
+```
+
+## ٹریننگ ورک فلو
+
+1. ٹاسک ڈیفائن کریں
+2. ماحول کنفیگر کریں
+3. پالیسی ٹرین کریں
+4. ایویلویٹ اور ڈیپلوئے کریں
+
+## مشق
+
+Isaac Lab کا استعمال کرتے ہوئے سادہ لوکوموشن پالیسی ٹرین کریں۔

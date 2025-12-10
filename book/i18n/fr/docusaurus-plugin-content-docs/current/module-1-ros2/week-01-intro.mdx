@@ -1,0 +1,47 @@
+---
+sidebar_position: 1
+---
+
+# Semaine 1 : Introduction à ROS 2
+
+Bienvenue dans ROS 2 ! Dans ce chapitre, vous apprendrez les fondamentaux du Robot Operating System 2.
+
+## Qu'est-ce que ROS 2 ?
+
+ROS 2 (Robot Operating System 2) est un framework middleware open-source pour la robotique. Il fournit :
+- **Infrastructure de communication** pour les systèmes distribués
+- **Outils et bibliothèques** pour construire des applications robotiques
+- **Abstraction matérielle** pour différents capteurs et actionneurs
+
+## Concepts Clés
+
+### Nœuds
+Les nœuds sont les unités de calcul de base dans ROS 2. Chaque nœud représente un processus qui effectue des tâches spécifiques.
+
+```python
+import rclpy
+from rclpy.node import Node
+
+class MyNode(Node):
+    def __init__(self):
+        super().__init__('my_node')
+        self.get_logger().info('Nœud démarré !')
+
+def main():
+    rclpy.init()
+    node = MyNode()
+    rclpy.spin(node)
+    rclpy.shutdown()
+```
+
+## Installation
+
+Suivez le [guide d'installation officiel de ROS 2](https://docs.ros.org/en/humble/Installation.html) pour votre plateforme.
+
+## Exercice
+
+Essayez de créer votre premier nœud ROS 2 en utilisant l'exemple de code ci-dessus.
+
+## Prochaines Étapes
+
+Dans le prochain chapitre, nous explorerons les nœuds et les topics en profondeur.

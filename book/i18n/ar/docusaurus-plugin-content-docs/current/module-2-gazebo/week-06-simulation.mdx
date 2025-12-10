@@ -1,0 +1,41 @@
+---
+sidebar_position: 1
+---
+
+# الأسبوع 6: مقدمة في محاكاة Gazebo
+
+تعلم كيفية محاكاة الروبوتات باستخدام Gazebo، محاكي روبوتات ثلاثي الأبعاد قوي.
+
+## ما هو Gazebo؟
+
+Gazebo هو محاكي روبوتات ثلاثي الأبعاد يوفر:
+- **محاكاة فيزيائية** واقعية
+- **محاكاة المستشعرات** (الكاميرات، الليدار، وحدة القياس بالقصور الذاتي)
+- **نماذج الروبوتات** والبيئات
+
+## إعداد Gazebo
+
+```bash
+# تثبيت Gazebo لـ ROS 2
+sudo apt install ros-humble-gazebo-ros-pkgs
+```
+
+## العالم الأساسي
+
+```xml
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="default">
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+  </world>
+</sdf>
+```
+
+## تمرين
+
+قم بتشغيل Gazebo واستكشف العالم الافتراضي.

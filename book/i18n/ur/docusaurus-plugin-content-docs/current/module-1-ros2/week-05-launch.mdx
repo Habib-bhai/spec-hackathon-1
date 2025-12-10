@@ -1,0 +1,40 @@
+---
+sidebar_position: 5
+---
+
+# ہفتہ 5: لانچ فائلز
+
+کنفیگریشن کے ساتھ متعدد نوڈز شروع کرنے کے لیے ROS 2 لانچ فائلز میں مہارت حاصل کریں۔
+
+## لانچ فائلز
+
+لانچ فائلز آپ کو اجازت دیتی ہیں:
+- ایک ساتھ متعدد نوڈز شروع کریں
+- پیرامیٹرز سیٹ کریں
+- ری میپنگز کنفیگر کریں
+- نوڈ لائف سائیکل مینج کریں
+
+```python
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+def generate_launch_description():
+    return LaunchDescription([
+        Node(
+            package='my_package',
+            executable='my_node',
+            name='my_node',
+            parameters=[{'param_name': 'param_value'}]
+        )
+    ])
+```
+
+## بہترین طریقے
+
+- پیرامیٹرز کے لیے YAML فائلز استعمال کریں
+- متعلقہ نوڈز کو اکٹھا گروپ کریں
+- تنظیم کے لیے نیم سپیسز شامل کریں
+
+## مشق
+
+مکمل روبوٹ سسٹم کے لیے لانچ فائل بنائیں۔

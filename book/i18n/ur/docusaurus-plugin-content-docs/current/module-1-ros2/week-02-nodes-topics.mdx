@@ -1,0 +1,40 @@
+---
+sidebar_position: 2
+---
+
+# ہفتہ 2: نوڈز اور ٹاپکس
+
+جانیں کہ ROS 2 نوڈز ٹاپکس کے ساتھ publish-subscribe پیٹرن استعمال کرتے ہوئے کیسے بات چیت کرتے ہیں۔
+
+## ٹاپکس
+
+ٹاپکس نامی بسیں ہیں جن پر نوڈز پیغامات کا تبادلہ کرتے ہیں۔ یہ publish-subscribe پیٹرن کو نافذ کرتے ہیں:
+- **پبلشرز** ٹاپکس کو پیغامات بھیجتے ہیں
+- **سبسکرائبرز** ٹاپکس سے پیغامات وصول کرتے ہیں
+
+```python
+from rclpy.node import Node
+from std_msgs.msg import String
+
+class Publisher(Node):
+    def __init__(self):
+        super().__init__('publisher')
+        self.publisher = self.create_publisher(String, 'my_topic', 10)
+        self.timer = self.create_timer(1.0, self.timer_callback)
+        
+    def timer_callback(self):
+        msg = String()
+        msg.data = 'السلام علیکم ROS 2!'
+        self.publisher.publish(msg)
+```
+
+## پیغام کی اقسام
+
+ROS 2 مضبوطی سے ٹائپ شدہ پیغامات استعمال کرتا ہے۔ عام اقسام میں شامل ہیں:
+- `std_msgs/String`
+- `geometry_msgs/Pose`
+- `sensor_msgs/Image`
+
+## مشق
+
+ایک پبلشر اور سبسکرائبر بنائیں جو حسب ضرورت پیغامات کا تبادلہ کریں۔

@@ -1,0 +1,8 @@
+{
+  "label": "Module 1 : Introduction à ROS 2",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Apprenez les fondamentaux de ROS 2 (Robot Operating System 2), y compris les nœuds, topics, services, actions et fichiers de lancement."
+  }
+}

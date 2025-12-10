@@ -1,0 +1,40 @@
+---
+sidebar_position: 5
+---
+
+# Semaine 5 : Fichiers de Lancement
+
+Maîtrisez les fichiers de lancement ROS 2 pour démarrer plusieurs nœuds avec configuration.
+
+## Fichiers de Lancement
+
+Les fichiers de lancement permettent de :
+- Démarrer plusieurs nœuds à la fois
+- Définir des paramètres
+- Configurer des remappages
+- Gérer le cycle de vie des nœuds
+
+```python
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+def generate_launch_description():
+    return LaunchDescription([
+        Node(
+            package='my_package',
+            executable='my_node',
+            name='my_node',
+            parameters=[{'param_name': 'param_value'}]
+        )
+    ])
+```
+
+## Bonnes Pratiques
+
+- Utilisez des fichiers YAML pour les paramètres
+- Regroupez les nœuds liés ensemble
+- Incluez des namespaces pour l'organisation
+
+## Exercice
+
+Créez un fichier de lancement pour un système robot complet.

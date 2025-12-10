@@ -1,0 +1,42 @@
+---
+sidebar_position: 3
+---
+
+# الأسبوع 3: الخدمات
+
+اكتشف خدمات ROS 2 لأنماط الاتصال طلب-استجابة.
+
+## ما هي الخدمات؟
+
+توفر الخدمات آلية متزامنة للطلب والاستجابة. على عكس المواضيع:
+- **اتصال واحد لواحد** (وليس واحد لكثير)
+- **استدعاءات محجوبة** (انتظار الاستجابة)
+- **نمط طلب-استجابة**
+
+```python
+from example_interfaces.srv import AddTwoInts
+
+class ServiceNode(Node):
+    def __init__(self):
+        super().__init__('service_node')
+        self.srv = self.create_service(
+            AddTwoInts,
+            'add_two_ints',
+            self.add_callback
+        )
+    
+    def add_callback(self, request, response):
+        response.sum = request.a + request.b
+        return response
+```
+
+## متى تستخدم الخدمات
+
+استخدم الخدمات عندما:
+- تحتاج إلى استجابة فورية
+- العملية سريعة ولا تُحجب
+- تريد اتصالاً متزامنًا
+
+## تمرين
+
+أنشئ خدمة تعالج أوامر الروبوت وتُرجع الحالة.

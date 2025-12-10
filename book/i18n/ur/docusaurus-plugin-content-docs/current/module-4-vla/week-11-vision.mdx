@@ -1,0 +1,32 @@
+---
+sidebar_position: 1
+---
+
+# ہفتہ 11: روبوٹکس کے لیے ویژن ماڈلز
+
+سیکھیں کہ ویژن ماڈلز روبوٹس کو اپنے ماحول کو سمجھنے اور ادراک کرنے میں کیسے مدد کرتے ہیں۔
+
+## روبوٹکس میں ویژن
+
+ویژن ماڈلز روبوٹس کی مدد کرتے ہیں:
+- اشیاء کو **ڈیٹیکٹ اور شناخت** کریں
+- **پوزز** اور پوزیشنز کا **اندازہ** لگائیں
+- سمجھ کے لیے **سینز سیگمنٹ** کریں
+
+## عام آرکیٹیکچرز
+
+- **CNNs**: کنولیوشنل نیورل نیٹ ورکس
+- **Vision Transformers**: ViT ماڈلز
+- **CLIP**: کنٹراسٹیو ویژن-لینگویج ماڈلز
+
+```python
+import torch
+from transformers import CLIPModel, CLIPProcessor
+
+model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+```
+
+## مشق
+
+روبوٹ ویژن سسٹم کے لیے آبجیکٹ ڈیٹیکشن نافذ کریں۔

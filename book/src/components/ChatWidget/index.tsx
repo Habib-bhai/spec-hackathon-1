@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useLocation } from '@docusaurus/router';
 import styles from './ChatWidget.module.css';
+import { getTranslations, isRTL, type ChatWidgetStrings } from './translations';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -12,10 +14,23 @@ interface ChatWidgetProps {
   chapterSlug?: string;
 }
 
+/**
+ * Extract locale from URL path (e.g., /fr/docs/intro -> 'fr')
+ */
+function getLocaleFromPath(pathname: string): string {
+  const localeMatch = pathname.match(/^\/(fr|ar|ur)\//);
+  return localeMatch ? localeMatch[1] : 'en';
+}
+
 export default function ChatWidget({ 
   apiUrl = 'http://localhost:8000',
   chapterSlug 
 }: ChatWidgetProps): JSX.Element {
+  const location = useLocation();
+  const locale = getLocaleFromPath(location.pathname);
+  const t: ChatWidgetStrings = getTranslations(locale);
+  const rtl = isRTL(locale);
+  
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
@@ -23,6 +38,7 @@ export default function ChatWidget({
   const [sessionId, setSessionId] = useState<number | null>(null);
   const [selectedText, setSelectedText] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
 
   // Auto-scroll to bottom when new messages arrive
   useEffect(() => {
@@ -107,6 +123,10 @@ export default function ChatWidget({
       e.preventDefault();
       sendMessage();
     }
+    // Close on Escape key
+    if (e.key === 'Escape' && isOpen) {
+      setIsOpen(false);
+    }
   };
 
   const clearChat = () => {
@@ -114,6 +134,13 @@ export default function ChatWidget({
     setSessionId(null);
     setSelectedText(null);
   };
+  
+  // Focus input when chat opens
+  useEffect(() => {
+    if (isOpen && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isOpen]);
 
   return (
     <>
@@ -121,36 +148,49 @@ export default function ChatWidget({
       <button
         className={styles.toggleButton}
         onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle chat"
+        aria-label={isOpen ? t.close : 'Open chat'}
+        aria-expanded={isOpen}
+        aria-controls="chat-window"
       >
         {isOpen ? '✕' : '💬'}
       </button>
 
       {/* Chat Window */}
       {isOpen && (
-        <div className={styles.chatWindow}>
+        <div 
+          id="chat-window"
+          className={styles.chatWindow}
+          dir={rtl ? 'rtl' : 'ltr'}
+          role="dialog"
+          aria-label={t.title}
+        >
           {/* Header */}
           <div className={styles.header}>
-            <h3>AI Tutor</h3>
-            <button 
-              onClick={clearChat} 
-              className={styles.clearButton}
-              title="Clear chat"
-            >
-              🗑️
-            </button>
+            <h3>{t.title}</h3>
+            <div className={styles.headerActions}>
+              <span className={styles.aiNote}>{t.aiResponseNote}</span>
+              <button 
+                onClick={clearChat} 
+                className={styles.clearButton}
+                title={t.clear}
+                aria-label={t.clear}
+              >
+                🗑️
+              </button>
+            </div>
           </div>
 
           {/* Selected Text Banner */}
           {selectedText && (
             <div className={styles.selectedTextBanner}>
-              <span className={styles.selectedTextLabel}>Selected:</span>
+              <span className={styles.selectedTextLabel}>{t.selectedText}</span>
               <span className={styles.selectedTextContent}>
                 "{selectedText.substring(0, 50)}..."
               </span>
               <button
                 onClick={() => setSelectedText(null)}
                 className={styles.clearSelectionButton}
+                aria-label="Clear selection"
               >
                 ✕
               </button>
@@ -158,14 +198,19 @@ export default function ChatWidget({
           )}
 
           {/* Messages */}
-          <div className={styles.messages}>
+          <div 
+            className={styles.messages}
+            role="log"
+            aria-live="polite"
+            aria-label="Chat messages"
+          >
             {messages.length === 0 && (
               <div className={styles.emptyState}>
-                <p>👋 Hi! I'm your AI tutor.</p>
-                <p>Ask me anything about the textbook content!</p>
+                <p>{t.emptyStateGreeting}</p>
+                <p>{t.emptyStateHint}</p>
                 {selectedText && (
                   <p className={styles.hint}>
-                    💡 I can see you've selected some text. Ask me about it!
+                    {t.selectedTextHint}
                   </p>
                 )}
               </div>
@@ -177,12 +222,14 @@ export default function ChatWidget({
                 className={`${styles.message} ${
                   msg.role === 'user' ? styles.userMessage : styles.assistantMessage
                 }`}
+                role="article"
+                aria-label={msg.role === 'user' ? 'Your message' : 'AI response'}
               >
                 <div className={styles.messageContent}>{msg.content}</div>
                 
                 {msg.sources && msg.sources.length > 0 && (
                   <div className={styles.sources}>
-                    <span className={styles.sourcesLabel}>Sources:</span>
+                    <span className={styles.sourcesLabel}>{t.sources}</span>
                     {msg.sources.map((source, i) => (
                       <span key={i} className={styles.source}>
                         {source.replace('module-', 'Module ').replace('/', ' › ')}
@@ -194,7 +241,11 @@ export default function ChatWidget({
             ))}
 
             {isLoading && (
-              <div className={`${styles.message} ${styles.assistantMessage}`}>
+              <div 
+                className={`${styles.message} ${styles.assistantMessage}`}
+                role="status"
+                aria-label={t.typing}
+              >
                 <div className={styles.loading}>
                   <span></span>
                   <span></span>
@@ -209,18 +260,22 @@ export default function ChatWidget({
           {/* Input */}
           <div className={styles.inputContainer}>
             <textarea
+              ref={inputRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="Ask a question..."
+              placeholder={t.placeholder}
               className={styles.input}
               rows={2}
               disabled={isLoading}
+              aria-label={t.placeholder}
+              dir={rtl ? 'rtl' : 'ltr'}
             />
             <button
               onClick={sendMessage}
               disabled={!input.trim() || isLoading}
               className={styles.sendButton}
+              aria-label={t.send}
             >
               {isLoading ? '⏳' : '➤'}
             </button>

@@ -1,0 +1,40 @@
+---
+sidebar_position: 2
+---
+
+# الأسبوع 2: العقد والمواضيع
+
+تعلم كيف تتواصل عقد ROS 2 باستخدام نمط النشر-الاشتراك مع المواضيع.
+
+## المواضيع
+
+المواضيع هي قنوات مسماة تتبادل العقد عبرها الرسائل. تُنفذ نمط النشر-الاشتراك:
+- **الناشرون** يرسلون الرسائل إلى المواضيع
+- **المشتركون** يستقبلون الرسائل من المواضيع
+
+```python
+from rclpy.node import Node
+from std_msgs.msg import String
+
+class Publisher(Node):
+    def __init__(self):
+        super().__init__('publisher')
+        self.publisher = self.create_publisher(String, 'my_topic', 10)
+        self.timer = self.create_timer(1.0, self.timer_callback)
+        
+    def timer_callback(self):
+        msg = String()
+        msg.data = 'مرحباً ROS 2!'
+        self.publisher.publish(msg)
+```
+
+## أنواع الرسائل
+
+يستخدم ROS 2 رسائل ذات أنواع محددة. تشمل الأنواع الشائعة:
+- `std_msgs/String`
+- `geometry_msgs/Pose`
+- `sensor_msgs/Image`
+
+## تمرين
+
+أنشئ ناشرًا ومشتركًا يتبادلان رسائل مخصصة.

@@ -1,0 +1,34 @@
+---
+sidebar_position: 3
+---
+
+# الأسبوع 10: التعلم المعزز مع Isaac Lab
+
+تدريب سياسات الروبوت باستخدام التعلم المعزز في Isaac Lab.
+
+## Isaac Lab
+
+يوفر Isaac Lab (المعروف سابقًا بـ Isaac Gym):
+- **محاكاة متوازية ضخمة**
+- **تكامل تدريب التعلم المعزز**
+- **نقل من المحاكاة إلى الواقع**
+
+```python
+from omni.isaac.lab.app import AppLauncher
+app_launcher = AppLauncher()
+
+from omni.isaac.lab_tasks.manager_based.locomotion import LocomotionEnv
+
+env = LocomotionEnv(cfg=cfg)
+```
+
+## سير عمل التدريب
+
+1. تحديد المهمة
+2. تكوين البيئة
+3. تدريب السياسة
+4. التقييم والنشر
+
+## تمرين
+
+تدريب سياسة حركة بسيطة باستخدام Isaac Lab.

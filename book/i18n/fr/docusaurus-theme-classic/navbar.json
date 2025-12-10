@@ -1,0 +1,18 @@
+{
+  "title": {
+    "message": "Manuel d'IA Physique",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Logo IA Physique",
+    "description": "The alt text of logo image (used when the image can't be loaded)"
+  },
+  "item.label.Textbook": {
+    "message": "Manuel",
+    "description": "Navbar item with label Textbook"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}

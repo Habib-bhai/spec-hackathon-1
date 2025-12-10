@@ -1,0 +1,42 @@
+---
+sidebar_position: 3
+---
+
+# ہفتہ 3: سروسز
+
+درخواست-جواب کمیونیکیشن پیٹرنز کے لیے ROS 2 سروسز دریافت کریں۔
+
+## سروسز کیا ہیں؟
+
+سروسز ایک سنکرونس درخواست-جواب میکانزم فراہم کرتی ہیں۔ ٹاپکس کے برعکس:
+- **ایک سے ایک کمیونیکیشن** (ایک سے کئی نہیں)
+- **بلاکنگ کالز** (جواب کا انتظار)
+- **درخواست-جواب پیٹرن**
+
+```python
+from example_interfaces.srv import AddTwoInts
+
+class ServiceNode(Node):
+    def __init__(self):
+        super().__init__('service_node')
+        self.srv = self.create_service(
+            AddTwoInts,
+            'add_two_ints',
+            self.add_callback
+        )
+    
+    def add_callback(self, request, response):
+        response.sum = request.a + request.b
+        return response
+```
+
+## سروسز کب استعمال کریں
+
+سروسز استعمال کریں جب:
+- آپ کو فوری جواب چاہیے
+- آپریشن تیز ہے اور بلاک نہیں کرتی
+- آپ سنکرونس کمیونیکیشن چاہتے ہیں
+
+## مشق
+
+ایک سروس بنائیں جو روبوٹ کمانڈز پروسیس کرے اور سٹیٹس واپس کرے۔

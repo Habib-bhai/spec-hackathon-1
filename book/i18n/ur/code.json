@@ -1,0 +1,46 @@
+{
+  "theme.chatWidget.title": {
+    "message": "اے آئی ٹیوٹر",
+    "description": "Chat widget title"
+  },
+  "theme.chatWidget.placeholder": {
+    "message": "نصابی کتاب کے بارے میں سوال پوچھیں...",
+    "description": "Chat input placeholder"
+  },
+  "theme.chatWidget.send": {
+    "message": "بھیجیں",
+    "description": "Send button label"
+  },
+  "theme.chatWidget.close": {
+    "message": "چیٹ بند کریں",
+    "description": "Close button label"
+  },
+  "theme.chatWidget.clear": {
+    "message": "چیٹ صاف کریں",
+    "description": "Clear chat button label"
+  },
+  "theme.chatWidget.sources": {
+    "message": "ذرائع:",
+    "description": "Sources label"
+  },
+  "theme.chatWidget.error": {
+    "message": "معذرت، ایک خرابی پیش آگئی۔ براہ کرم دوبارہ کوشش کریں۔",
+    "description": "Error message"
+  },
+  "theme.chatWidget.aiNote": {
+    "message": "اے آئی انگریزی میں جواب دیتا ہے",
+    "description": "Note that AI responds in English"
+  },
+  "theme.docs.sidebar.collapseButtonTitle": {
+    "message": "سائڈبار بند کریں",
+    "description": "The title attribute for collapse button of doc sidebar"
+  },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "message": "سائڈبار کھولیں",
+    "description": "The title attribute for expand button of doc sidebar"
+  },
+  "theme.common.skipToMainContent": {
+    "message": "مرکزی مواد پر جائیں",
+    "description": "Skip to main content link"
+  }
+}

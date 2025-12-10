@@ -1,0 +1,51 @@
+---
+sidebar_position: 3
+---
+
+# Semaine 13 : Intégration des Modèles VLA avec les Robots
+
+Mettez tout ensemble : intégrez les modèles VLA dans un système robotique complet.
+
+## Architecture du Système
+
+Un système robot propulsé par VLA comprend :
+- **Perception** : Traitement des entrées visuelles
+- **Langage** : Compréhension des commandes
+- **Action** : Sortie de contrôle moteur
+
+## Étapes d'Intégration
+
+1. Configurer le matériel robot/simulation
+2. Charger et configurer le modèle VLA
+3. Créer la boucle de contrôle
+4. Tester et itérer
+
+```python
+def control_loop(robot, vla_model):
+    while True:
+        # Capturer l'image
+        image = robot.get_camera_image()
+        
+        # Obtenir la commande
+        command = get_user_command()
+        
+        # Prédire l'action
+        action = vla_model.predict(image, command)
+        
+        # Exécuter
+        robot.execute_action(action)
+```
+
+## Exercice
+
+Construisez un système complet qui répond aux commandes en langage naturel.
+
+## Idées de Projets
+
+- Pick and place avec commandes vocales
+- Navigation avec objectifs visuels
+- Manipulation avec descriptions en langage
+
+## Prochaines Étapes
+
+Félicitations ! Vous avez terminé les fondamentaux du manuel d'IA Physique. Continuez à pratiquer et à construire vos propres projets.

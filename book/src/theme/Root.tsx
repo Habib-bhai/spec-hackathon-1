@@ -7,6 +7,22 @@ interface RootProps {
   children: React.ReactNode;
 }
 
+/**
+ * Skip to content link for accessibility
+ * Hidden by default, visible on focus for keyboard navigation
+ */
+function SkipToContent(): JSX.Element {
+  return (
+    <a 
+      href="#__docusaurus" 
+      className="skip-to-content"
+      tabIndex={0}
+    >
+      Skip to main content
+    </a>
+  );
+}
+
 // Default implementation, that you can customize
 export default function Root({children}: RootProps) {
   const {siteConfig} = useDocusaurusContext();
@@ -14,6 +30,7 @@ export default function Root({children}: RootProps) {
   
   return (
     <>
+      <SkipToContent />
       {children}
       <BrowserOnly fallback={<div>Loading...</div>}>
         {() => <ChatWidget apiUrl={apiUrl} />}

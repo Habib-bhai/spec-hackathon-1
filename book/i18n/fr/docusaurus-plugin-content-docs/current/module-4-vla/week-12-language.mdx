@@ -1,0 +1,32 @@
+---
+sidebar_position: 2
+---
+
+# Semaine 12 : Modèles de Langage pour les Commandes Robot
+
+Découvrez comment les modèles de langage permettent une interaction en langage naturel avec les robots.
+
+## Le Langage pour la Robotique
+
+Les modèles de langage permettent aux robots de :
+- **Comprendre** les commandes en langage naturel
+- **Planifier** des séquences de tâches
+- **Raisonner** sur les actions
+
+## Modèles VLA
+
+Les modèles Vision-Langage-Action combinent :
+- **Vision** : Voir l'environnement
+- **Langage** : Comprendre les commandes
+- **Action** : Exécuter les commandes motrices
+
+```python
+# Exemple : Utilisation d'un modèle VLA
+from transformers import AutoModel
+
+vla_model = AutoModel.from_pretrained("openvla/openvla-7b")
+```
+
+## Exercice
+
+Créez une interface en langage naturel pour le contrôle de robot.

@@ -1,0 +1,41 @@
+---
+sidebar_position: 1
+---
+
+# ہفتہ 6: Gazebo سمولیشن کا تعارف
+
+Gazebo کا استعمال کرتے ہوئے روبوٹس کی سمولیشن سیکھیں، ایک طاقتور 3D روبوٹ سمولیٹر۔
+
+## Gazebo کیا ہے؟
+
+Gazebo ایک 3D روبوٹ سمولیٹر ہے جو فراہم کرتا ہے:
+- **حقیقت پسندانہ فزکس** سمولیشن
+- **سینسر سمولیشن** (کیمرے، لیڈار، IMU)
+- **روبوٹ ماڈلز** اور ماحول
+
+## Gazebo سیٹ اپ
+
+```bash
+# ROS 2 کے لیے Gazebo انسٹال کریں
+sudo apt install ros-humble-gazebo-ros-pkgs
+```
+
+## بنیادی دنیا
+
+```xml
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="default">
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+  </world>
+</sdf>
+```
+
+## مشق
+
+Gazebo لانچ کریں اور ڈیفالٹ دنیا کو دریافت کریں۔

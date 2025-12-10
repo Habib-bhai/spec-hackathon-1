@@ -1,0 +1,18 @@
+{
+  "title": {
+    "message": "فزیکل اے آئی نصاب",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "فزیکل اے آئی لوگو",
+    "description": "The alt text of logo image (used when the image can't be loaded)"
+  },
+  "item.label.Textbook": {
+    "message": "نصابی کتاب",
+    "description": "Navbar item with label Textbook"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}

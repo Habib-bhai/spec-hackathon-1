@@ -1,0 +1,32 @@
+---
+sidebar_position: 1
+---
+
+# الأسبوع 11: نماذج الرؤية للروبوتات
+
+تعلم كيف تُمكّن نماذج الرؤية الروبوتات من إدراك وفهم بيئتها.
+
+## الرؤية في الروبوتات
+
+تساعد نماذج الرؤية الروبوتات على:
+- **اكتشاف والتعرف على** الأشياء
+- **تقدير الوضعيات** والمواقع
+- **تقسيم المشاهد** للفهم
+
+## البنيات الشائعة
+
+- **CNNs**: الشبكات العصبية التلافيفية
+- **Vision Transformers**: نماذج ViT
+- **CLIP**: نماذج الرؤية-اللغة التباينية
+
+```python
+import torch
+from transformers import CLIPModel, CLIPProcessor
+
+model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+```
+
+## تمرين
+
+نفذ اكتشاف الأشياء لنظام رؤية الروبوت.

@@ -47,17 +47,33 @@
 
 .header {
   padding: 16px 20px;
-  background: var(--ifm-color-primary);
+  background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-dark));
   color: white;
   font-weight: 600;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .header h3 {
   margin: 0;
   font-size: 18px;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.aiNote {
+  font-size: 10px;
+  opacity: 0.75;
+  font-weight: normal;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 2px 8px;
+  border-radius: 10px;
 }
 
 .clearButton {

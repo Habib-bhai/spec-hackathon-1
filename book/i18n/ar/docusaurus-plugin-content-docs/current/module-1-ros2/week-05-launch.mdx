@@ -1,0 +1,40 @@
+---
+sidebar_position: 5
+---
+
+# الأسبوع 5: ملفات التشغيل
+
+أتقن ملفات تشغيل ROS 2 لبدء عدة عقد مع التكوين.
+
+## ملفات التشغيل
+
+تتيح لك ملفات التشغيل:
+- بدء عدة عقد في وقت واحد
+- تعيين المعلمات
+- تكوين إعادة التعيينات
+- إدارة دورة حياة العقد
+
+```python
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+def generate_launch_description():
+    return LaunchDescription([
+        Node(
+            package='my_package',
+            executable='my_node',
+            name='my_node',
+            parameters=[{'param_name': 'param_value'}]
+        )
+    ])
+```
+
+## أفضل الممارسات
+
+- استخدم ملفات YAML للمعلمات
+- جمّع العقد ذات الصلة معًا
+- استخدم مساحات الأسماء للتنظيم
+
+## تمرين
+
+أنشئ ملف تشغيل لنظام روبوت كامل.

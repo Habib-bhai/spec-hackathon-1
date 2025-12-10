@@ -1,0 +1,42 @@
+---
+sidebar_position: 3
+---
+
+# Semaine 3 : Services
+
+Découvrez les services ROS 2 pour les patterns de communication requête-réponse.
+
+## Qu'est-ce que les Services ?
+
+Les services fournissent un mécanisme synchrone de requête-réponse. Contrairement aux topics :
+- **Communication un-à-un** (pas un-à-plusieurs)
+- **Appels bloquants** (attente de la réponse)
+- **Pattern requête-réponse**
+
+```python
+from example_interfaces.srv import AddTwoInts
+
+class ServiceNode(Node):
+    def __init__(self):
+        super().__init__('service_node')
+        self.srv = self.create_service(
+            AddTwoInts,
+            'add_two_ints',
+            self.add_callback
+        )
+    
+    def add_callback(self, request, response):
+        response.sum = request.a + request.b
+        return response
+```
+
+## Quand Utiliser les Services
+
+Utilisez les services quand :
+- Vous avez besoin d'une réponse immédiate
+- L'opération est rapide et ne bloque pas
+- Vous voulez une communication synchrone
+
+## Exercice
+
+Créez un service qui traite les commandes du robot et renvoie le statut.

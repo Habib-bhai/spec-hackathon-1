@@ -1,0 +1,34 @@
+---
+sidebar_position: 3
+---
+
+# Semaine 10 : Apprentissage par Renforcement avec Isaac Lab
+
+Entraînez des politiques de robots en utilisant l'apprentissage par renforcement dans Isaac Lab.
+
+## Isaac Lab
+
+Isaac Lab (anciennement Isaac Gym) fournit :
+- **Simulation massivement parallèle**
+- **Intégration d'entraînement RL**
+- **Transfert sim-vers-réel**
+
+```python
+from omni.isaac.lab.app import AppLauncher
+app_launcher = AppLauncher()
+
+from omni.isaac.lab_tasks.manager_based.locomotion import LocomotionEnv
+
+env = LocomotionEnv(cfg=cfg)
+```
+
+## Workflow d'Entraînement
+
+1. Définir la tâche
+2. Configurer l'environnement
+3. Entraîner la politique
+4. Évaluer et déployer
+
+## Exercice
+
+Entraînez une politique de locomotion simple en utilisant Isaac Lab.

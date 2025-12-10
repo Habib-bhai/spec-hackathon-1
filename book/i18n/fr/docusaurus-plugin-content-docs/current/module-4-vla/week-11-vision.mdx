@@ -1,0 +1,32 @@
+---
+sidebar_position: 1
+---
+
+# Semaine 11 : Modèles de Vision pour la Robotique
+
+Apprenez comment les modèles de vision permettent aux robots de percevoir et comprendre leur environnement.
+
+## La Vision en Robotique
+
+Les modèles de vision aident les robots à :
+- **Détecter et reconnaître** des objets
+- **Estimer les poses** et positions
+- **Segmenter les scènes** pour la compréhension
+
+## Architectures Courantes
+
+- **CNNs** : Réseaux de Neurones Convolutifs
+- **Vision Transformers** : Modèles ViT
+- **CLIP** : Modèles contrastifs vision-langage
+
+```python
+import torch
+from transformers import CLIPModel, CLIPProcessor
+
+model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+```
+
+## Exercice
+
+Implémentez la détection d'objets pour un système de vision robotique.

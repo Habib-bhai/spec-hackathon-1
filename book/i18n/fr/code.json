@@ -1,0 +1,46 @@
+{
+  "theme.chatWidget.title": {
+    "message": "Tuteur IA",
+    "description": "Chat widget title"
+  },
+  "theme.chatWidget.placeholder": {
+    "message": "Posez une question sur le manuel...",
+    "description": "Chat input placeholder"
+  },
+  "theme.chatWidget.send": {
+    "message": "Envoyer",
+    "description": "Send button label"
+  },
+  "theme.chatWidget.close": {
+    "message": "Fermer le chat",
+    "description": "Close button label"
+  },
+  "theme.chatWidget.clear": {
+    "message": "Effacer le chat",
+    "description": "Clear chat button label"
+  },
+  "theme.chatWidget.sources": {
+    "message": "Sources :",
+    "description": "Sources label"
+  },
+  "theme.chatWidget.error": {
+    "message": "Désolé, j'ai rencontré une erreur. Veuillez réessayer.",
+    "description": "Error message"
+  },
+  "theme.chatWidget.aiNote": {
+    "message": "L'IA répond en anglais",
+    "description": "Note that AI responds in English"
+  },
+  "theme.docs.sidebar.collapseButtonTitle": {
+    "message": "Réduire la barre latérale",
+    "description": "The title attribute for collapse button of doc sidebar"
+  },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "message": "Développer la barre latérale",
+    "description": "The title attribute for expand button of doc sidebar"
+  },
+  "theme.common.skipToMainContent": {
+    "message": "Aller au contenu principal",
+    "description": "Skip to main content link"
+  }
+}

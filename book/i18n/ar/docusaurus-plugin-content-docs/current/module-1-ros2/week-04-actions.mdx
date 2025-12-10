@@ -1,0 +1,43 @@
+---
+sidebar_position: 4
+---
+
+# الأسبوع 4: الإجراءات
+
+تعلم إجراءات ROS 2 للمهام طويلة الأمد مع التغذية الراجعة.
+
+## ما هي الإجراءات؟
+
+الإجراءات مخصصة للمهام التي:
+- تستغرق وقتًا للإكمال
+- توفر تغذية راجعة دورية
+- يمكن إلغاؤها
+
+```python
+from action_tutorials_interfaces.action import Fibonacci
+
+class ActionServer(Node):
+    def __init__(self):
+        super().__init__('action_server')
+        self._action_server = ActionServer(
+            self,
+            Fibonacci,
+            'fibonacci',
+            self.execute_callback
+        )
+    
+    def execute_callback(self, goal_handle):
+        # إرسال تغذية راجعة دورية
+        # إرجاع النتيجة النهائية
+        pass
+```
+
+## مكونات الإجراء
+
+1. **الهدف**: ما تريد تحقيقه
+2. **التغذية الراجعة**: تحديثات التقدم
+3. **النتيجة**: الناتج النهائي
+
+## تمرين
+
+أنشئ خادم إجراءات لمهمة التنقل.

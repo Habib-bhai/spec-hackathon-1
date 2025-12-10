@@ -1,0 +1,43 @@
+---
+sidebar_position: 4
+---
+
+# Semaine 4 : Actions
+
+Apprenez les actions ROS 2 pour les tâches de longue durée avec retour d'information.
+
+## Qu'est-ce que les Actions ?
+
+Les actions sont pour les tâches qui :
+- Prennent du temps à s'exécuter
+- Fournissent un retour périodique
+- Peuvent être annulées
+
+```python
+from action_tutorials_interfaces.action import Fibonacci
+
+class ActionServer(Node):
+    def __init__(self):
+        super().__init__('action_server')
+        self._action_server = ActionServer(
+            self,
+            Fibonacci,
+            'fibonacci',
+            self.execute_callback
+        )
+    
+    def execute_callback(self, goal_handle):
+        # Envoyer un retour périodique
+        # Retourner le résultat final
+        pass
+```
+
+## Composants d'une Action
+
+1. **Goal (Objectif)** : Ce que vous voulez accomplir
+2. **Feedback (Retour)** : Mises à jour de progression
+3. **Result (Résultat)** : Résultat final
+
+## Exercice
+
+Créez un serveur d'action pour une tâche de navigation.
