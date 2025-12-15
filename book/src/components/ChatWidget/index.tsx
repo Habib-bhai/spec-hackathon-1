@@ -74,7 +74,7 @@ export default function ChatWidget({
     setIsLoading(true);
 
     try {
-      const response = await fetch(`https://habib-dev-2006-rag-backend.hf.space/rag-backend/api/chat`, {
+      const response = await fetch(`https://habib-dev-2006-rag-backend.hf.space/rag-backend/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -286,5 +286,6 @@ export default function ChatWidget({
     </>
   );
 }
+
 
 
