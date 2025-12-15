@@ -22,6 +22,7 @@ function getLocaleFromPath(pathname: string): string {
   return localeMatch ? localeMatch[1] : 'en';
 }
 
+// eslint-disable-next-line
 export default function ChatWidget({ 
   apiUrl = 'http://localhost:8000',
   chapterSlug 
@@ -73,7 +74,7 @@ export default function ChatWidget({
     setIsLoading(true);
 
     try {
-      const response = await fetch(`${apiUrl}/api/chat`, {
+      const response = await fetch(`https://huggingface.co/spaces/habib-dev-2006/rag-backend/api/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -285,3 +286,4 @@ export default function ChatWidget({
     </>
   );
 }
+
